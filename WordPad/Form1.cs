@@ -13,9 +13,21 @@ namespace WordPad
 {
     public partial class Form1 : Form
     {
+        WordPad wordPad;
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            wordPad.Save(textBox1.Text);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            wordPad = new WordPad();
         }
     }
 }
