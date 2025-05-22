@@ -5,9 +5,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WordPad
 {
-    internal partial class Form1 : Form
+    partial class WordPad
     {
-        public void OpenFile()
+        public string OpenFile()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -17,13 +17,12 @@ namespace WordPad
             {
                 try
                 {
-                    string text = File.ReadAllText(openFileDialog.FileName);
-                    textBox1.Text = text;
-                    MessageBox.Show("Файл успешно открыт", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   return File.ReadAllText(openFileDialog.FileName);
+                   
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ошибка при открытии файла:\n" + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
                 }
             }
         }
